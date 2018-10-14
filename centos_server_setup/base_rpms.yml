@@ -1,0 +1,17 @@
+
+
+- name: Install Tree
+  package: 
+    name: tree
+    state: present
+
+- name: Install mlocate
+  package:
+    name: mlocate
+    state: present
+
+- name: Update all the things
+  package:
+    name: '*'
+    state: latest
+    
