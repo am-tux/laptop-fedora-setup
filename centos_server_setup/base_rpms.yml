@@ -1,7 +1,7 @@
 #installing base rpms that I use and updating the everything
 
 - name: Install Tree
-  package: 
+  package:
     name: tree
     state: present
 
@@ -10,8 +10,12 @@
     name: mlocate
     state: present
 
+- name: Install git
+  package:
+    name: git
+    state: present
+
 - name: Update all the things
   package:
     name: '*'
     state: latest
-    
