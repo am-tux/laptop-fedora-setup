@@ -8,3 +8,22 @@
         name: vim
         state: present
 
+sudo apt-get -y install ca-certificates
+cd /tmp && wget https://apt.puppet.com/puppet6-release-focal.deb
+sudo dpkg -i /tmp/puppet6-release-focal.deb
+
+echo "deb http://deb.theforeman.org/ focal 2.5" | sudo tee /etc/apt/sources.list.d/foreman.list
+echo "deb http://deb.theforeman.org/ plugins 2.5" | sudo tee -a /etc/apt/sources.list.d/foreman.list
+sudo apt-get -y install ca-certificates
+wget -q https://deb.theforeman.org/pubkey.gpg -O- | sudo apt-key add -
+
+
+
+sudo apt-get update && sudo apt-get -y install foreman-installer
+
+ Ensure that ping $(hostname -f) shows the real IP address, not 127.0.1.1. Change or remove this entry from /etc/hosts if present. 
+
+
+
+sudo foreman-installer
+
