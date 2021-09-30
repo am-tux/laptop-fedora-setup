@@ -1,0 +1,5 @@
+---
+- hosts: nifi_servers
+  become: yes
+  roles:
+    - cavemandaveman.nifi

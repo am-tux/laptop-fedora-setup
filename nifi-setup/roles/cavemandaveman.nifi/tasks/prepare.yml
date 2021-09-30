@@ -1,0 +1,29 @@
+---
+- name: Create NiFi group
+  group:
+    name: "{{ nifi_group }}"
+    state: "present"
+    system: "yes"
+
+- name: Create NiFi user
+  user:
+    name: "{{ nifi_user }}"
+    groups: "{{ nifi_group }}"
+    append: "yes"
+    state: "present"
+    create_home: "no"
+    system: "yes"
+
+- name: Create NiFi directories
+  file:
+    path: "{{ item.value }}"
+    state: "directory"
+    owner: "{{ nifi_user }}"
+    group: "{{ nifi_group }}"
+  loop: "{{ nifi_config_dirs | dict2items }}"
+
+- name: Set NiFi home
+  lineinfile:
+    path: "/etc/environment"
+    line: "export NIFI_HOME={{ nifi_config_dirs.home }}"
+    create: "yes"
