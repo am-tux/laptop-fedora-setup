@@ -1,0 +1,28 @@
+---
+- hosts: hatchet
+  become: yes
+  vars:
+    packages:
+    - xrdp
+    - tigervnc-server
+    - virt-viewer
+
+  tasks:
+  
+    - name: Install "{{ packages }}"
+      package:  
+        name:  "{{ packages }}"
+        state: present
+    
+    - name: ENable and start xrdp
+      service:
+        name: xrdp
+        state: started
+        enabled: true
+
+    - name: Enable xrdp in the firewall
+      firewalld:
+        port: 3389/tcp
+        permanent: yes
+        state: enabled
+        immediate: true
