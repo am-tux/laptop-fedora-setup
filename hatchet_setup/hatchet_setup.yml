@@ -6,6 +6,7 @@
     - xrdp
     - tigervnc-server
     - virt-viewer
+    - nodejs
 
   tasks:
   
