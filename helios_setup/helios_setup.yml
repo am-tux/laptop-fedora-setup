@@ -6,7 +6,6 @@
     - nodejs
     - git
     - gnome-tweaks
-    - nodejs
 
   tasks:
   
