@@ -13,4 +13,5 @@
       package:  
         name:  "{{ packages }}"
         state: present
-    
+
+# add npm module to install nodemon globally
