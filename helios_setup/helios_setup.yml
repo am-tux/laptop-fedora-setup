@@ -1,0 +1,17 @@
+---
+- hosts: helios
+  become: yes
+  vars:
+    packages:
+    - nodejs
+    - git
+    - gnome-tweaks
+    - nodejs
+
+  tasks:
+  
+    - name: Install "{{ packages }}"
+      package:  
+        name:  "{{ packages }}"
+        state: present
+    
