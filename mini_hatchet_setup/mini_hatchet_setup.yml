@@ -1,0 +1,23 @@
+---
+- hosts: mini_hatchet
+  become: yes
+  vars:
+    packages:
+      - vim
+      - ansible
+      - git
+      - bash-completion.noarch
+
+  tasks:
+    - name: set hostname
+      hostname:
+        name: mini_hatchet
+
+    - name: Add the Ansible repo
+      rhsm_repository:
+        name: ansible-2.9-for-rhel-8-x86_64-rpms
+
+    - name: Install "{{ packages }}"
+      package:
+        name: "{{ packages }}"
+        state: present
