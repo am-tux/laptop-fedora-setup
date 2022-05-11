@@ -3,19 +3,29 @@
   become: yes
   vars:
     packages:
-    - xrdp
-    - tigervnc-server
-    - virt-viewer
-    - nodejs
+      - xrdp
+      - tigervnc-server
+      - virt-viewer
+      - nodejs
 
   tasks:
-  
+    - name: Install EPEL when hatchet is RHEL (codeready builder repo)
+      rhsm_repository:
+        name: codeready-builder-for-rhel-8-x86_64-rpms
+      when: ansible_distribution == "RedHat"
+
+    - name: Install EPEL when hatchet is RHEL (epel rpm )
+      yum:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+        state: latest
+      when: ansible_distribution == "RedHat"
+
     - name: Install "{{ packages }}"
-      package:  
-        name:  "{{ packages }}"
+      package:
+        name: "{{ packages }}"
         state: present
-    
-    - name: ENable and start xrdp
+
+    - name: Enable and start xrdp
       service:
         name: xrdp
         state: started
