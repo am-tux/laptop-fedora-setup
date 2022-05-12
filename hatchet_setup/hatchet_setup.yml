@@ -7,6 +7,10 @@
       - tigervnc-server
       - virt-viewer
       - nodejs
+      - htop
+    services:
+      - xrdp
+      - cockpit
 
   tasks:
     - name: Install EPEL when hatchet is RHEL (codeready builder repo)
@@ -25,11 +29,12 @@
         name: "{{ packages }}"
         state: present
 
-    - name: Enable and start xrdp
+    - name: Enable and start "{{ services }}"
       service:
-        name: xrdp
+        name: "{{ item }}"
         state: started
         enabled: true
+      loop: "{{ services }}"
 
     - name: Enable xrdp in the firewall
       firewalld:
