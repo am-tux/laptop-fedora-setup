@@ -8,6 +8,10 @@
       - virt-viewer
       - nodejs
       - htop
+      - dnf-automatic
+      - vim
+      - ansible
+
     services:
       - xrdp
       - cockpit
