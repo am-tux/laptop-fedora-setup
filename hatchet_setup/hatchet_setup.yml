@@ -17,6 +17,11 @@
       - cockpit
 
   tasks:
+    - name: Update everything because I have a problem
+      yum:
+        name: "*"
+        state: latest
+
     - name: Install EPEL when hatchet is RHEL (codeready builder repo)
       rhsm_repository:
         name: codeready-builder-for-rhel-8-x86_64-rpms
