@@ -1,4 +1,5 @@
 ---
+#Notes: add vscode via snap
 - hosts: hatchet
   become: yes
   vars:
