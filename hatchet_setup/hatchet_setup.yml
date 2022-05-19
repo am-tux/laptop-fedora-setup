@@ -13,11 +13,16 @@
       - vim
       - ansible
       - cockpit
+      - cockpit-pcp
+      - cockpit-machines
       - python3
+      - code
+      - google-chrome-stable
 
     services:
       - xrdp
       - cockpit
+      - pmlogger
 
   tasks:
     - name: Update everything because I have a problem
@@ -36,6 +41,24 @@
         state: latest
       when: ansible_distribution == "RedHat"
 
+    - name: Add the vscode repo
+      yum_repository:
+        name: vscode-repo
+        description: vscode-repo
+        baseurl: https://packages.microsoft.com/yumrepos/vscode
+        enabled: yes
+        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+        gpgcheck: yes
+
+    - name: Add the chrome repo
+      yum_repository:
+        name: chrome-repo
+        description: chrome-repo
+        baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+        enabled: yes
+        gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+        gpgcheck: yes
+
     - name: Install "{{ packages }}"
       package:
         name: "{{ packages }}"
@@ -53,4 +76,3 @@
         port: 3389/tcp
         permanent: yes
         state: enabled
-  #       immediate: true
