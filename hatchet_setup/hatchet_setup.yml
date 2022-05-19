@@ -12,6 +12,8 @@
       - dnf-automatic
       - vim
       - ansible
+      - cockpit
+      - python3
 
     services:
       - xrdp
@@ -51,4 +53,4 @@
         port: 3389/tcp
         permanent: yes
         state: enabled
-        immediate: true
+  #       immediate: true
