@@ -18,6 +18,8 @@
       - python3
       - code
       - google-chrome-stable
+      - dnf-plugins-core
+      - packer
 
     services:
       - xrdp
@@ -57,6 +59,15 @@
         baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
         enabled: yes
         gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+        gpgcheck: yes
+
+    - name: Add the hashicorp repo
+      yum_repository:
+        name: hashicorp-repo
+        description: hashicorp-repo
+        baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+        enabled: yes
+        gpgkey: https://rpm.releases.hashicorp.com/gpg
         gpgcheck: yes
 
     - name: Install "{{ packages }}"
