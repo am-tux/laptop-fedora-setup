@@ -3,71 +3,8 @@
 - name: Configure t14 laptop as daily driver for work
   hosts: t14
   become: true
-  vars:
-    packages:
-      - xrdp
-      - tigervnc-server
-      - virt-viewer
-      - htop
-      - dnf-automatic
-      - vim
-      - ansible
-      - cockpit
-      - cockpit-pcp
-      - cockpit-machines
-      - python3
-      - code
-      - google-chrome-stable
-      - dnf-plugins-core
-      - ansible-lint
-      - python3-pip
-      # - packer
-
-    services:
-      - cockpit
-      - pmlogger
 
   tasks:
-    - name: Update everything because I have a problem
-      ansible.builtin.dnf:
-        name: "*"
-        state: present
-
-    - name: Add the vscode repo
-      ansible.builtin.yum_repository:
-        name: vscode-repo
-        description: vscode-repo
-        baseurl: https://packages.microsoft.com/yumrepos/vscode
-        enabled: true
-        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-        gpgcheck: true
-
-    - name: Add the chrome repo
-      ansible.builtin.yum_repository:
-        name: chrome-repo
-        description: chrome-repo
-        baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
-        enabled: true
-        gpgkey: https://dl.google.com/linux/linux_signing_key.pub
-        gpgcheck: true
-
-    # - name: Add the hashicorp repo
-    #   yum_repository:
-    #     name: hashicorp-repo
-    #     description: hashicorp-repo
-    #     baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
-    #     enabled: true
-    #     gpgkey: https://rpm.releases.hashicorp.com/gpg
-    #     gpgcheck: true
-
-    - name: Install "{{ packages }}"
-      ansible.builtin.dnf:
-        name: "{{ packages }}"
-        state: present
-
-    - name: Enable and start "{{ services }}"
-      ansible.builtin.service:
-        name: "{{ item }}"
-        state: started
-        enabled: true
-      loop: "{{ services }}"
+    - name: Install base base_software
+      ansible.builtin.import_role:
+        name: base_software

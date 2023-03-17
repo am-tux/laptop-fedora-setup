@@ -1,2 +1,24 @@
 ---
 # defaults file for base_software
+packages:
+  - xrdp
+  - tigervnc-server
+  - virt-viewer
+  - htop
+  - dnf-automatic
+  - vim
+  - ansible
+  - cockpit
+  - cockpit-pcp
+  - cockpit-machines
+  - python3
+  - code
+  - google-chrome-stable
+  - dnf-plugins-core
+  - ansible-lint
+  - python3-pip
+  # - packer
+
+services:
+  - cockpit
+  - pmlogger
