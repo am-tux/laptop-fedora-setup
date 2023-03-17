@@ -8,3 +8,9 @@
     - name: Install base base_software
       ansible.builtin.import_role:
         name: base_software
+      tags: base_sw
+
+    - name: Fix airpod pro connection
+      ansible.builtin.import_role:
+        name: bluetooth_headphones
+      tags: headphones

@@ -4,7 +4,7 @@
 - name: Update everything because I have a problem
   ansible.builtin.dnf:
     name: "*"
-    state: present
+    state: latest
 
 - name: Add the vscode repo
   ansible.builtin.yum_repository:
