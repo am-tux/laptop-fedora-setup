@@ -1,8 +1,6 @@
 ---
 # defaults file for base_software
 packages:
-  - xrdp
-  - tigervnc-server
   - virt-viewer
   - htop
   - dnf-automatic
@@ -18,7 +16,7 @@ packages:
   - dnf-plugins-core
   - ansible-lint
   - python3-pip
-  # - packer
+  - packer
 
 services:
   - cockpit

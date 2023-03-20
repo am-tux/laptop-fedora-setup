@@ -7,3 +7,7 @@
 1. Configure flatpak and install zoom & podaman desktop.
 
 1. Create some housekeeping dirs.
+
+## VPN
+
+- I did not feel comfortable putting the vpn rpms on git so just authenticate and follow the instructionser [here](https://redhat.service-now.com/help?id=kb_article_view&sysparm_article=KB0005424)
