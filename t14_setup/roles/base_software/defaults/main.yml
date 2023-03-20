@@ -7,6 +7,7 @@ packages:
   - htop
   - dnf-automatic
   - vim
+  - gedit
   - ansible
   - cockpit
   - cockpit-pcp

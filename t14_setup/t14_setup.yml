@@ -14,3 +14,16 @@
       ansible.builtin.import_role:
         name: bluetooth_headphones
       tags: headphones
+
+    - name: Create housekeeping dirs
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: andrew
+        group: andrew
+        mode: 0770
+      loop:
+        - /images
+        - /andrew/git_projects
+        - /andrew/git_projects/private
+        - /andrew/temp_junk
