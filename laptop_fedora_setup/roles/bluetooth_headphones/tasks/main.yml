@@ -1,0 +1,19 @@
+---
+# tasks file for bluetooth_headphones
+- name: Install the bluez drivers
+  ansible.builtin.dnf:
+    name: bluez*
+    state: present
+
+- name: Load the kernel module
+  community.general.modprobe:
+    name: btusb
+    state: present
+
+- name: Change controller mode to bredr
+  ansible.builtin.lineinfile:
+    path: /etc/bluetooth/main.conf
+    regexp: "^#ControllerMode = dual"
+    line: "ControllerMode = bredr"
+  notify:
+    - Restart Bluetooth

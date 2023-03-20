@@ -1,0 +1,13 @@
+---
+# tasks file for git_config
+- name: Set git name
+  community.general.git_config:
+    name: user.email
+    value: "{{ git_name }}"
+    scope: global
+
+- name: Set git git_email
+  community.general.git_config:
+    name: user.name
+    value: "{{ git_email }}"
+    scope: global

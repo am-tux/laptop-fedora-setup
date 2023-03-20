@@ -1,6 +1,0 @@
----
-# handlers file for bluetooth_headphones
-- name: restart bluetooth
-  ansible.builtin.service:
-    name: bluetooth
-    state: restarted
