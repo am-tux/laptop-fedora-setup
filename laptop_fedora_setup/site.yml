@@ -1,17 +1,23 @@
 # Notes: add vscode via snap
 ---
-- name: Configure lenovo laptop as daily driver for work
+- name: Configure laptop as daily driver for work
   hosts: laptop
   become: true
 
   tasks:
-    - name: Install base base_software
+    - name: Install base software
       ansible.builtin.import_role:
         name: base_software
       tags: base_sw
 
-    - name: Fix airpod pro connectiont14
-      tags: flatpak_software
+    - name: Configure and install flatpaks
+      ansible.builtin.import_role:
+        name: flatpak_software
+
+    - name: Fix airpod pro connection
+      ansible.builtin.import_role:
+        name: bluetooth_headphones
+      tags: bluetooth_headphones
 
     - name: Configure git settings
       ansible.builtin.import_role:
@@ -20,13 +26,6 @@
       become: false
 
     - name: Create housekeeping dirs
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: directory
-        owner: andrew
-        group: andrew
-        mode: 0770
-      loop:
-        - /images
-        - /home/andrew/git_projects/private
-        - /home/andrew/temp_junk
+      ansible.builtin.import_role:
+        name: housekeeping_dirs
+      tags: housekeeping_dirs

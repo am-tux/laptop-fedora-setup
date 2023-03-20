@@ -24,3 +24,5 @@
 
 - [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 - Might add disa-stig later...
+- Might configure the auto-updating in the future
+- Last used against Fedora 37
