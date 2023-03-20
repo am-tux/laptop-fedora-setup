@@ -24,14 +24,14 @@
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
     gpgcheck: true
 
-# - name: Add the hashicorp repo
-#   yum_repository:
-#     name: hashicorp-repo
-#     description: hashicorp-repo
-#     baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
-#     enabled: true
-#     gpgkey: https://rpm.releases.hashicorp.com/gpg
-#     gpgcheck: true
+  # - name: Add the hashicorp repo
+  yum_repository:
+    name: hashicorp-repo
+    description: hashicorp-repo
+    baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+    enabled: true
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+    gpgcheck: true
 
 - name: Install "{{ packages }}"
   ansible.builtin.dnf:

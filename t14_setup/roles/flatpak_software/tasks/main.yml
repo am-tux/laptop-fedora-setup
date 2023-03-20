@@ -1,0 +1,19 @@
+---
+# tasks file for podman_desktop
+
+- name: Add the flathub flatpak repository remote
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: system
+
+- name: Install podman desktop
+  community.general.flatpak:
+    name: io.podman_desktop.PodmanDesktop
+    state: present
+
+- name: Install zoom
+  community.general.flatpak:
+    name: us.zoom.Zoom
+    state: present

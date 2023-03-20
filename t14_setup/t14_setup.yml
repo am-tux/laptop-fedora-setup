@@ -15,6 +15,11 @@
         name: bluetooth_headphones
       tags: headphones
 
+    - name: Configure flatpak and install sw
+      ansible.builtin.import_role:
+        name: flatpak_software
+      tags: flatpak_software
+
     - name: Create housekeeping dirs
       ansible.builtin.file:
         path: "{{ item }}"
@@ -24,6 +29,5 @@
         mode: 0770
       loop:
         - /images
-        - /andrew/git_projects
-        - /andrew/git_projects/private
-        - /andrew/temp_junk
+        - /home/andrew/git_projects/private
+        - /home/andrew/temp_junk
