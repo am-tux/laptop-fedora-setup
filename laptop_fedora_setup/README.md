@@ -37,3 +37,5 @@
 - Want to automate little tweaks like (ctrl + e) opening the file browser.
 - Joining the system to quay and all that goodness.
 - Last used against Fedora 37.
+- Add release checking logic to skip packer for fedora 38 until it is supported
+- Add bit to remove packages (firefox)

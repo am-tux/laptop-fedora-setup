@@ -17,9 +17,10 @@ packages:
   - dnf-plugins-core
   - ansible-lint
   - python3-pip
-  - packer
+  #- packer
   - gnome-extensions-app
 
 services:
   - cockpit
   - pmlogger
+  - sshd
