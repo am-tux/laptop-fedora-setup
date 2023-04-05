@@ -1,5 +1,0 @@
----
-- name: restart_nifi
-  service:
-    name: nifi
-    state: restarted
