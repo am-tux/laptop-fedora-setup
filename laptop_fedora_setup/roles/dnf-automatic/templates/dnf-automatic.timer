@@ -8,7 +8,7 @@ ConditionPathExists=!/run/ostree-booted
 Wants=network-online.target
 
 [Timer]
-OnCalendar="{{ update_time }}"
+OnCalendar={{ update_time }}
 RandomizedDelaySec=60m
 Persistent=true
 

@@ -1,6 +1,6 @@
 ---
 # defaults file for base_software
-packages:
+packages_install:
   - virt-viewer
   - git
   - htop
@@ -17,10 +17,14 @@ packages:
   - dnf-plugins-core
   - ansible-lint
   - python3-pip
-  #- packer
+  - dnf-utils
+  # - packer
   - gnome-extensions-app
+
+packages_remove:
+  - firefox
+  - telnet
 
 services:
   - cockpit
   - pmlogger
-  - sshd

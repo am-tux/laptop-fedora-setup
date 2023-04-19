@@ -1,10 +1,31 @@
 ---
 # tasks file for base_software
 # Need to decide later if I need packer
+
+- name: Install dnf-utils for functionality
+  ansible.builtin.dnf:
+    name: dnf-utils
+    state: present
+
+- name: Enable and start sshd to survive upcoming reboot
+  ansible.builtin.service:
+    name: sshd
+    state: started
+    enabled: true
+
 - name: Update everything because I have a problem
   ansible.builtin.dnf:
     name: "*"
     state: latest
+
+- name: Check if a reboot is required
+  ansible.builtin.command: needs-restarting -r
+  register: reg_reboot_required
+  ignore_errors: true
+  failed_when: false
+  changed_when: reg_reboot_required.rc != 0
+  notify:
+    - Reboot when needed
 
 - name: Add the vscode repo
   ansible.builtin.yum_repository:
@@ -33,9 +54,9 @@
     gpgkey: https://rpm.releases.hashicorp.com/gpg
     gpgcheck: true
 
-- name: Install "{{ packages }}"
+- name: Install "{{ packages_install }}"
   ansible.builtin.dnf:
-    name: "{{ packages }}"
+    name: "{{ packages_install }}"
     state: present
 
 - name: Enable and start "{{ services }}"
@@ -44,3 +65,9 @@
     state: started
     enabled: true
   loop: "{{ services }}"
+
+- name: Remove "{{ packages_remove }}"
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ packages_remove }}"

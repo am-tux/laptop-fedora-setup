@@ -6,16 +6,16 @@
 
   tasks:
     - name: Install base software
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: base_software
       tags: base_sw
 
     - name: Configure and install flatpaks
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: flatpak_software
 
     - name: Fix airpod pro connection
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: bluetooth_headphones
       tags: bluetooth_headphones
 
@@ -26,11 +26,16 @@
       become: false
 
     - name: Create housekeeping dirs
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: housekeeping_dirs
       tags: housekeeping_dirs
 
     - name: Install and config dnf-automatic
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: dnf-automatic
       tags: dnf-automatic
+
+    - name: Increase sudo timeout
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        line: Defaults timestamp_timeout=30

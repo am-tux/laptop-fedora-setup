@@ -1,19 +1,15 @@
 ---
 # defaults file for dnf-automatic
 
-services:
-  - dnf-automatic
-  - dnf-automatic.timer
-
 # Apply either 'all' or 'security' updates
 upgrade_type: all
 
 # Can either send the output to 'motd', 'email', 'stdio'
-emit_mode: "motd,email"
+emit_mode: motd,email
 
 # Who to send the email to
 email_to: root
 
 # This is the time to install updates (this being
 # every day @ 0700)
-update_time: "OnCalendar=*-*-* 7:00"
+update_time: "*-*-* 7:00"
