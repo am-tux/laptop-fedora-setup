@@ -1,0 +1,30 @@
+---
+# tasks file for dnf-automatic
+
+- name: Install dnf-automatic
+  ansible-builtin.dnf:
+    name: dnf-automatic
+    state: present
+
+- name: Push out dnf automatic config
+  ansible-builtin.template:
+    src: automatic.conf
+    dest: /etc/dnf/automatic.conf
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Push out dnf-automatic.timer config
+  ansible.builtin.template:
+    src: dnf-automatic.timer
+    dest: /usr/lib/systemd/system/dnf-automatic.timer
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Enable and start "{{ services }}"
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop: "{{ services }}"

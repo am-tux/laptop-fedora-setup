@@ -29,3 +29,8 @@
       ansible.builtin.import_role:
         name: housekeeping_dirs
       tags: housekeeping_dirs
+
+    - name: Install and config dnf-automatic
+      ansible.builtin.import_role:
+        name: dnf-automatic
+      tags: dnf-automatic

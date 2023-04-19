@@ -1,0 +1,16 @@
+# Managed by ansible, role dnf-automatic
+
+# /usr/lib/systemd/system/dnf-automatic.timer
+[Unit]
+Description=dnf-automatic timer
+# See comment in dnf-makecache.service
+ConditionPathExists=!/run/ostree-booted
+Wants=network-online.target
+
+[Timer]
+OnCalendar="{{ update_time }}"
+RandomizedDelaySec=60m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

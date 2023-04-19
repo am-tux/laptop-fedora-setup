@@ -39,3 +39,8 @@
 - Last used against Fedora 37.
 - Add release checking logic to skip packer for fedora 38 until it is supported
 - Add bit to remove packages (firefox)
+- Add this bit to sudoers for a better timeout
+
+```
+Defaults timestamp_timeout=30
+```
