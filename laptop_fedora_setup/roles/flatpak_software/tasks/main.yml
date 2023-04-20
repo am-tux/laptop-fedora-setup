@@ -8,12 +8,7 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: system
 
-- name: Install podman desktop
+- name: Install "{{ flatpaks_install }}"
   community.general.flatpak:
-    name: io.podman_desktop.PodmanDesktop
-    state: present
-
-- name: Install zoom
-  community.general.flatpak:
-    name: us.zoom.Zoom
+    name: "{{ flatpaks_install }}"
     state: present

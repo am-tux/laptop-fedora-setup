@@ -1,6 +1,2 @@
 ---
 # handlers file for base_software
-
-- name: Reboot when needed
-  ansible.builtin.reboot:
-    reboot_timeout: 3600
