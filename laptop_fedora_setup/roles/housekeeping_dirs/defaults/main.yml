@@ -4,5 +4,5 @@ user_name: andrew
 
 dirs_to_make:
   - /images
-  - /home/{{ user_name }}/git_projects/private
+  - /home/{{ user_name }}/git_projects
   - /home/{{ user_name }}/temp_junk
