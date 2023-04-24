@@ -1,4 +1,5 @@
-# This playbook will setup a laptop as a daily driver using Fedora. In general it will:
+# This playbook will setup a laptop as a daily driver using Fedora. 
+  ## In general it will:
 
 1. Install a bunch of rpms (cockpit, vscode, packer, chrome, etc). Start their services, and allow them through the FW.
 
@@ -32,15 +33,6 @@
 
 - [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 - Might add disa-stig later...
-- Need to configure the auto-updating in the future.
-  - Doing it through cockpit mandates a reboot after patching which is a bit annoying every morning when turning the laptop on.
 - Want to automate little tweaks like (ctrl + e) opening the file browser.
 - Joining the system to quay and all that goodness.
-- Last used against Fedora 37.
-- Add release checking logic to skip packer for fedora 38 until it is supported
-- Add bit to remove packages (firefox)
-- Add this bit to sudoers for a better timeout
-
-```
-Defaults timestamp_timeout=30
-```
+- Last used against Fedora 38.
