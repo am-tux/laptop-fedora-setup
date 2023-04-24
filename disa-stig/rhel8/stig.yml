@@ -1,5 +1,0 @@
----
--  hosts: stig-targets
-   become: yes
-   roles:
-     - ansible-role-rhel8-stig
