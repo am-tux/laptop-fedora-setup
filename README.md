@@ -5,7 +5,7 @@
 
 1. Install some bluetooth drivers and configure bluetooth so that airpod pros work.
 
-1. Configure flatpak, install zoom & podaman desktop.
+1. Configure flatpak, install zoom & podman desktop.
 
 1. Set up git user name and email so that it does not complain later.
 
