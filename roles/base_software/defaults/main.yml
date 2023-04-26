@@ -8,9 +8,12 @@ packages_install:
   - vim
   - gedit
   - ansible
+  - podman
   - cockpit
   - cockpit-pcp
   - cockpit-machines
+  - cockpit-podman
+  - cockpit-selinux
   - python3
   - code
   - google-chrome-stable
@@ -28,3 +31,4 @@ packages_remove:
 services:
   - cockpit
   - pmlogger
+  - podman
