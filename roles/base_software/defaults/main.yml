@@ -29,6 +29,6 @@ packages_remove:
   - telnet
 
 services:
-  - cockpit
+  - cockpit.socket
   - pmlogger
   - podman
