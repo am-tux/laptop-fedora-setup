@@ -2,6 +2,5 @@
 # defaults file for podman_desktop
 
 flatpaks_install:
-  - com.bluejeans.BlueJeans
   - io.podman_desktop.PodmanDesktop
   - us.zoom.Zoom
