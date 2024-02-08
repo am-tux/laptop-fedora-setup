@@ -31,8 +31,6 @@
 
 ## Random links/Notes/TODO
 
-- [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 - Might add disa-stig later...
 - Want to automate little tweaks like (ctrl + e) opening the file browser.
-- Joining the system to quay and all that goodness.
-- Last used against Fedora 38.
+- Last used against Fedora 39.
