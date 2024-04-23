@@ -14,10 +14,10 @@
       ansible.builtin.include_role:
         name: flatpak_software
 
-    - name: Fix airpod pro connection
-      ansible.builtin.include_role:
-        name: bluetooth_headphones
-      tags: bluetooth_headphones
+    # - name: Fix airpod pro connection
+    #   ansible.builtin.include_role:
+    #     name: bluetooth_headphones
+    #   tags: bluetooth_headphones
 
     - name: Configure git settings
       ansible.builtin.import_role:
