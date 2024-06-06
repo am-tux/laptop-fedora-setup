@@ -2,6 +2,7 @@
 ---
 - name: Configure laptop as daily driver for work
   hosts: laptop
+  remote_user: andrew
   become: true
 
   tasks:

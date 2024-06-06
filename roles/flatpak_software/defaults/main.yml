@@ -3,4 +3,3 @@
 
 flatpaks_install:
   - io.podman_desktop.PodmanDesktop
-  - us.zoom.Zoom
